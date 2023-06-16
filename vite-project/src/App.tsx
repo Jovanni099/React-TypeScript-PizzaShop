@@ -1,6 +1,8 @@
 // import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import { AddPizzaForm } from './components/AddPizzaForm';
+import Pizza from './models/pizza';
 
 let pizza: string = 'salami';
 pizza = 'cheese';
@@ -46,6 +48,8 @@ let number: null | number = null;
 
 
 export const App: React.FC = () => {
+  const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
+
   return (
     <div className='App'>
       <div className="wrap">
