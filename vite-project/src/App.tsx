@@ -1,5 +1,6 @@
 // import React from 'react';
 import './App.css';
+import { AddPizzaForm } from './components/AddPizzaForm';
 
 let pizza: string = 'salami';
 pizza = 'cheese';
@@ -44,9 +45,16 @@ let number: null | number = null;
 
 
 
-export const App = () => {
+export const App: React.FC = () => {
   return (
-    <div>App</div>
+    <div className='App'>
+      <div className="wrap">
+        <span className="heading">
+          Наша пиццерия
+        </span>
+        <AddPizzaForm />
+      </div>
+    </div>
   )
 }
 
