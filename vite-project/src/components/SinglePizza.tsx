@@ -6,9 +6,10 @@ import { EditPizzaForm } from './EditPizzaForm';
 
 interface SinglePizzaProps {
     pizza: Pizza;
+    updatePizza: (newPizza: Pizza) => void;
 }
 
-export const SinglePizza: React.FC<SinglePizzaProps> = ({ pizza }) => {
+export const SinglePizza: React.FC<SinglePizzaProps> = ({ pizza, updatePizza }) => {
     const [edit, setEdit] = useState<boolean>(false);
     const handleToggleEdit = () => {
         setEdit(!edit)
@@ -25,7 +26,11 @@ export const SinglePizza: React.FC<SinglePizzaProps> = ({ pizza }) => {
             </div>
 
             {edit
-                ? <EditPizzaForm data={pizza} />
+                ? <EditPizzaForm
+                    data={pizza}
+                    updatePizza={updatePizza}
+                    handleToggleEdit={handleToggleEdit}
+                />
                 : null
             }
         </div>

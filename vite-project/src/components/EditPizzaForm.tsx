@@ -3,10 +3,14 @@ import Pizza from '../models/pizza';
 
 interface EditPizzaFormProps {
     data: Pizza;
+    updatePizza: (newPizza: Pizza) => void;
+    handleToggleEdit: () => void;
 }
 
-export const EditPizzaForm: React.FC<EditPizzaFormProps> = ({ data }) => {
+export const EditPizzaForm: React.FC<EditPizzaFormProps> = ({ data, updatePizza, handleToggleEdit }) => {
+
     const [editPizza, setEditPizza] = useState<Pizza>(data);
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setEditPizza({
@@ -19,7 +23,8 @@ export const EditPizzaForm: React.FC<EditPizzaFormProps> = ({ data }) => {
         e.preventDefault();
         const { title, price, img } = editPizza;
         if (title && price && img) {
-            console.log(editPizza);
+            updatePizza(editPizza)
+            handleToggleEdit()
         }
     }
 
