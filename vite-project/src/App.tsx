@@ -60,6 +60,11 @@ export const App: React.FC = () => {
       (pizza.id === newPizza.id ? newPizza : pizza)))
   }
 
+  const deletePizza = (id: number) => {
+    const newPizzasList = pizzasList.filter(pizza => pizza.id !== id);
+    setPizzasList(newPizzasList);
+  }
+
   console.log('pizzasList:', pizzasList);
 
 
@@ -75,6 +80,7 @@ export const App: React.FC = () => {
         <DisplayPizzas
           pizzasList={pizzasList}
           updatePizza={updatePizza}
+          deletePizza={deletePizza}
         />
       </div>
     </div>
